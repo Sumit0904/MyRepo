@@ -1,0 +1,16 @@
+<apex:page >
+    <apex:form >
+        <h1>
+            Please Fill up the form
+        </h1>
+        Enter the Name:<apex:inputText id="Name"/><br></br>
+        Enter the Age:<apex:inputText id="Age"/><br></br>
+        Set the Username:<apex:inputText id="Username"/><br></br>
+        Set the Password:<apex:inputSecret id="password"/><br></br> 
+		Coverletter:<apex:inputTextarea id="coverletter"/><br></br>
+
+
+
+
+</apex:form>
+</apex:page>

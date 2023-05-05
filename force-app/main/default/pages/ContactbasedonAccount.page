@@ -1,0 +1,29 @@
+<apex:page controller="ShowAllAccountspicklistController" tabStyle="Account">
+    <apex:sectionHeader title="Accounts Records" subtitle="All Accounts"/>
+    <apex:form >
+        <apex:pageblock title="Accounts Records">
+            <apex:pageBlockSection title="All Accounts" collapsible="true"  columns="1">
+                <apex:selectlist value="{!selectedAccountId}" label="Select the Account Name:" size="1" multiselect="false">
+                    <apex:actionSupport action="{!getrelatedContacts}" event="onchange" rerender="pgBlock">
+                    </apex:actionSupport>
+                    <apex:selectOption value="{!lstoptions}">
+                    </apex:selectOption>
+                </apex:selectlist>
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageblock>
+        
+        <apex:pageBlock title="Related Contacts:({!lstContacts.size})" id="pgBlock">
+            <apex:pageblocktable value="{!lstContacts}" var="con">
+                <apex:column value="{!con.firstname}"/>
+                <apex:column value="{!con.lastname}"/>
+                <apex:column value="{!con.title}"/>
+                <apex:column value="{!con.email}"/>
+                <apex:column value="{!con.phone}"/>
+                <apex:column value="{!con.fax}"/>
+                
+            </apex:pageblocktable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

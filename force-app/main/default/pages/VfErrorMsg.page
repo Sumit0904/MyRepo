@@ -1,0 +1,5 @@
+<apex:page >
+    <apex:pageBlock >
+    	<apex:pageMessage summary="Error Message" severity="Confirm" strength="3"></apex:pageMessage>
+    </apex:pageBlock>
+  </apex:page>

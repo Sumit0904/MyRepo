@@ -1,0 +1,8 @@
+<apex:page controller="SourcePageController" setup="false" sidebar="false" showHeader="true" tabStyle="Hiring_Manager__c">
+    <apex:sectionHeader title="Source Page" subtitle="Page Navigation"/>
+    <apex:form >
+        <apex:pageblock title="Source Page">
+            <apex:commandButton value="Goto target Page" action="{GotoTargetPage}"/>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

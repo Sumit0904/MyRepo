@@ -1,0 +1,5 @@
+<apex:page >
+    <h1>
+       Congratulations you have Successsfully Created the Visualforce page
+    </h1>
+</apex:page>

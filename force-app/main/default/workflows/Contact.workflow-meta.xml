@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Contact_Creation_Notification_Action</fullName>
+        <ccEmails>ytsurve@gmail.com</ccEmails>
+        <ccEmails>sumit.telgote94@gmail.com</ccEmails>
+        <description>Contact Creation Notification Action</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>sumit.telgote94@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>yogyasurv@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/ContactCreation</template>
+    </alerts>
+    <alerts>
+        <fullName>Template</fullName>
+        <ccEmails>sumit.telgote93@gmail.com</ccEmails>
+        <description>Template</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>sumit.telgote94@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Opportunity_1667576751930</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Field_update_Value</fullName>
+        <field>Description</field>
+        <formula>&quot;Test Description through Workflow rule&quot;</formula>
+        <name>Field update Value</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Contact Creation Notification</fullName>
+        <actions>
+            <name>Contact_Creation_Notification_Action</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.Email</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Phone</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Title</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Contact field Update</fullName>
+        <actions>
+            <name>Field_update_Value</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Contact.LeadSource</field>
+            <operation>equals</operation>
+            <value>Web</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Email</field>
+            <operation>contains</operation>
+            <value>@gmail.com</value>
+        </criteriaItems>
+        <description>This is demo workflow rule for field update</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Email Alerts</fullName>
+        <actions>
+            <name>Template</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Contact.Email</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>This is demo workflow rule for email alerts</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

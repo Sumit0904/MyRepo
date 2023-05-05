@@ -1,0 +1,18 @@
+<apex:page controller="leadActionPollerController" action="{!getallunconvertedleadrecord}" setup="false"
+           sidebar="false" tabstyle="account">
+    <apex:sectionHeader title="leads records" subtitle="ALL lead Records"/>
+    <apex:form >
+        
+        <apex:pageblock title="All Leads Records: {!lstlead.size}" id="pgBlock">
+        <apex:pageBlockTable value="{!lstlead}" var="ld">
+            <apex:column value="{!ld.firstname}"/>
+             <apex:column value="{!ld.lastname}"/>
+             <apex:column value="{!ld.title}"/> 
+             <apex:column value="{!ld.Phone}"/>
+             <apex:column value="{!ld.fax}"/>
+             <apex:column value="{!ld.Company}"/>
+             <apex:column value="{!ld.Status}"/>
+            </apex:pageBlockTable>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,24 @@
+<apex:page >
+    <apex:form >
+    <apex:pageBlock title="First Block">
+        <apex:pageBlockSection title="First Page Block Section">
+           <apex:pageBlockSectionItem >Jira</apex:pageBlockSectionItem>
+             <apex:pageBlockSectionItem >Salesforce</apex:pageBlockSectionItem>
+             <apex:pageBlockSectionItem >Hadoop</apex:pageBlockSectionItem>
+             <apex:pageBlockSectionItem >Python</apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+         <apex:pageBlockSection title="Second Page Block Section">
+              <apex:pageBlockSectionItem >DJANgo</apex:pageBlockSectionItem>
+             <apex:pageBlockSectionItem >Linux</apex:pageBlockSectionItem>
+             <apex:pageBlockSectionItem >SQL</apex:pageBlockSectionItem>
+             <apex:pageBlockSectionItem >JAVA</apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons >
+             <apex:commandButton Value="Save"/>
+             <apex:commandButton Value="Save & New"/>
+             <apex:commandButton Value="Cancel"/>
+        </apex:pageBlockButtons>
+       
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Opportunity_Amount</fullName>
+        <ccEmails>sumit.telgote93@gmail.com</ccEmails>
+        <description>Opportunity Amount greater than 10000</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>sumit.telgote94@gmail.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Opportunity_1667576751930</template>
+    </alerts>
+    <rules>
+        <fullName>Opp demo</fullName>
+        <actions>
+            <name>Opportunity_Amount</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.Amount</field>
+            <operation>greaterOrEqual</operation>
+            <value>10000</value>
+        </criteriaItems>
+        <description>When opp is greater than 10000</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>
