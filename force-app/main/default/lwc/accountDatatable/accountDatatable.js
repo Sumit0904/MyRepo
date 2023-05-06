@@ -1,0 +1,57 @@
+import { LightningElement,track,wire } from 'lwc';
+import getAccounts from '@salesforce/apex/AccountController.getAccounts';
+export default class AccountDatatable extends LightningElement {
+    @track columns = [{
+        label: 'Account name',
+        fieldName: 'Name',
+        type: 'text',
+        sortable: true
+    },
+    {
+        label: 'Type',
+        fieldName: 'Type',
+        type: 'text',
+        sortable: true
+    },
+    {
+        label: 'Annual Revenue',
+        fieldName: 'AnnualRevenue',
+        type: 'Currency',
+        sortable: true
+    },
+    {
+        label: 'Phone',
+        fieldName: 'Phone',
+        type: 'phone',
+        sortable: true
+    },
+    {
+        label: 'Website',
+        fieldName: 'Website',
+        type: 'url',
+        sortable: true
+    },
+    {
+        label: 'Rating',
+        fieldName: 'Rating',
+        type: 'test',
+        sortable: true
+    }
+];
+
+
+@track error;
+@track accList ;
+@wire(getAccounts)
+wiredAccounts({
+    error,
+    data
+}) {
+    if (data) {
+        this.accList = data;
+    } else if (error) {
+        this.error = error;
+    }
+}
+
+}
